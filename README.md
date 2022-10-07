@@ -19,7 +19,7 @@ El objetivo del presente proyecto es el de otorgar un grado mayor de seguridad a
 
 # Prototipo:
 
-En el área de hardware, el prototipo planteado consta de una Raspberry pi Pico como computador central, el cual recopilará la data de una variedad de sensores, los cuales nos brindarán un monitoreo completo del minero en su área de trabajo. Los sensores utilizados son:
+En el área de hardware, el prototipo planteado consta de una Raspberry Pi Pico como computador central, el cual recopilará la data de una variedad de sensores, los cuales nos brindarán un monitoreo completo del minero en su área de trabajo. Los sensores utilizados son:
 
 * Mq09
 * Mq135
