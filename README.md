@@ -19,7 +19,7 @@ El objetivo del presente proyecto es el de otorgar un grado mayor de seguridad a
 
 # Prototipo:
 
-En el área de hardware, el prototipo planteado consta de una Raspberry pi Pico como computador central, el cual recopilará la data de una variedad de sensores, los cuales nos brindarán un monitoreo completo del minero en su área de trabajo. Los sensores utilizado son:
+En el área de hardware, el prototipo planteado consta de una Raspberry pi Pico como computador central, el cual recopilará la data de una variedad de sensores, los cuales nos brindarán un monitoreo completo del minero en su área de trabajo. Los sensores utilizados son:
 
 * Mq09
 * Mq135
@@ -32,7 +32,7 @@ En el área de hardware, el prototipo planteado consta de una Raspberry pi Pico 
 
 ![image](https://user-images.githubusercontent.com/80610961/194448818-232eac5b-d3b1-4b01-b68a-59f5ee1d9486.png)
 
-## Software del prototipo implementado:
+## Dashboard de visualización de datos obtenidos en tiempo real:
 Los datos obtenidos de los sensores se visualizarán en la plataforma diseñada en Node-red.    
 
 ![image](https://user-images.githubusercontent.com/80610961/194457489-41371f54-afdc-47ae-afbb-62f78dc6dde2.png)
