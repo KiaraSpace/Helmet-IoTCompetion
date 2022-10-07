@@ -32,4 +32,6 @@ En el área de hardware, el prototipo planteado consta de una Raspberry pi Pico 
 
 ![image](https://user-images.githubusercontent.com/80610961/194448818-232eac5b-d3b1-4b01-b68a-59f5ee1d9486.png)
 
+## Software del prototipo implementado:
+![image](https://user-images.githubusercontent.com/80610961/194452681-ae3a6609-d03b-4d33-b4ab-c40b4ba06ae2.png)
 
