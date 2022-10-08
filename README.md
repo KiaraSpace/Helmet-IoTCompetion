@@ -29,6 +29,8 @@ El objetivo del presente proyecto es el de otorgar un grado mayor de seguridad a
 
 # Prototipo:
 
+![image](https://user-images.githubusercontent.com/80610961/194684693-de48592a-9e6e-4ec0-8409-808e9ea6ae96.png)
+
 En el área de hardware, el prototipo planteado consta de una Raspberry Pi Pico como computador central, el cual recopilará la data de una variedad de sensores, los cuales nos brindarán un monitoreo completo del minero en su área de trabajo. Los sensores utilizados son:
 
 * MQ-09
@@ -47,4 +49,6 @@ Los datos obtenidos de los sensores se visualizarán en la plataforma diseñada 
 
 ![image](https://user-images.githubusercontent.com/80610961/194457489-41371f54-afdc-47ae-afbb-62f78dc6dde2.png)
 
-
+## Código- Software:
+1. El código `Concurso IOT.json`, consta de la implementación general de los dashboards de visualización de datos en tiempo real en Node-Red.
+2. El código `Code.py`, consta de la programación de todos los sensores, además del algoritmo de localización.
