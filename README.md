@@ -17,8 +17,7 @@ El objetivo del presente proyecto es el de otorgar un grado mayor de seguridad a
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Arquitectura de la Solución:
-
-![imagen_2022-10-07_200814616](https://user-images.githubusercontent.com/80610961/194680180-151b4049-2059-4ca8-b330-483f41555611.png)
+![Arquitectura](https://user-images.githubusercontent.com/86942136/194683226-343cbc14-5698-4fa0-af80-2e311c37f7b3.png)
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
