@@ -1,0 +1,2039 @@
+[
+    {
+        "id": "4920525ac807b04c",
+        "type": "tab",
+        "label": "Concurso IOT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "eeb3e66a2f92250e",
+        "type": "serial in",
+        "z": "4920525ac807b04c",
+        "name": "Hardware",
+        "serial": "434df0726cce18d4",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "88ce3eee529d6191"
+            ]
+        ]
+    },
+    {
+        "id": "f77cc0c9da4bf86e",
+        "type": "mqtt out",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "topic": "ConcursoIOT_HELMET",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "24b9beb434f376b9",
+        "x": 570,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "38aa57367d99d7fe",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "Convertimos JSON",
+        "info": "",
+        "x": 310,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "88ce3eee529d6191",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.split(\",\")\n\nfor (var i = 0; i < msg.payload.length; i++) {\n    msg.payload[i] = parseFloat(msg.payload[i])\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "9fa12fa0974c38d2",
+                "198ab19f22b0dbd4",
+                "850c5ee6ecf3f69e",
+                "dae8eb76ef5c5fe4",
+                "f77cc0c9da4bf86e"
+            ]
+        ]
+    },
+    {
+        "id": "9fa12fa0974c38d2",
+        "type": "debug",
+        "z": "4920525ac807b04c",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "3ee6747a88058326",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "X",
+        "func": "msg.topic = \"Posicion X\";\nmsg.payload = msg.payload[0]; \n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 380,
+        "wires": [
+            [
+                "96ec51435b465e08"
+            ]
+        ]
+    },
+    {
+        "id": "198ab19f22b0dbd4",
+        "type": "link out",
+        "z": "4920525ac807b04c",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "bbe22ff6d57efcb8"
+        ],
+        "x": 525,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "bbe22ff6d57efcb8",
+        "type": "link in",
+        "z": "4920525ac807b04c",
+        "name": "link in 1",
+        "links": [
+            "198ab19f22b0dbd4"
+        ],
+        "x": 65,
+        "y": 960,
+        "wires": [
+            [
+                "3ee6747a88058326",
+                "0a87de9d2c200672",
+                "45856d48f348c41c",
+                "5d96bc9e2f1b8283",
+                "407d3f99cb25c169",
+                "34ff3bd551aa1d77",
+                "8f27f4420567eb2f",
+                "899ea077587c6128",
+                "36b042b24a948de4",
+                "664b3da94cb84f36",
+                "2d75691c69fa155e",
+                "5499e486c97bee57",
+                "f811ed265864689b",
+                "37b1baa4f6d9d150",
+                "9152a197232f22d5",
+                "113a56f0228a6a92",
+                "b0e54270ba8490ae"
+            ]
+        ]
+    },
+    {
+        "id": "5d96bc9e2f1b8283",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Y",
+        "func": "msg.topic = \"Posición Y\";\nmsg.payload = msg.payload[1];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 440,
+        "wires": [
+            [
+                "96ec51435b465e08"
+            ]
+        ]
+    },
+    {
+        "id": "45856d48f348c41c",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Z",
+        "func": "msg.topic = \"Posición Z\";\nmsg.payload = msg.payload[2];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "96ec51435b465e08"
+            ]
+        ]
+    },
+    {
+        "id": "0a87de9d2c200672",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Temperatura",
+        "func": "msg.topic = \"Temperatura\";\nmsg.payload = msg.payload[9];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 210,
+        "y": 920,
+        "wires": [
+            [
+                "e215f0f3f2d30815"
+            ]
+        ]
+    },
+    {
+        "id": "e215f0f3f2d30815",
+        "type": "ui_gauge",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "3e3d42059a2d3e3a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 490,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "e6bdf10ef459482e",
+        "type": "inject",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3,12,3,1,1,2,0,1,1,23.44,102345,80,200,123,34,321,5.232131",
+        "payloadType": "str",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "88ce3eee529d6191"
+            ]
+        ]
+    },
+    {
+        "id": "407d3f99cb25c169",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Presion",
+        "func": "msg.topic = \"Presión\";\nmsg.payload = msg.payload[10];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 980,
+        "wires": [
+            [
+                "688afa5238de209a"
+            ]
+        ]
+    },
+    {
+        "id": "688afa5238de209a",
+        "type": "ui_gauge",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "73f61d8b1719a763",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Presión",
+        "label": "Pa",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 460,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "34ff3bd551aa1d77",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Humedad",
+        "func": "msg.topic = \"Humedad\";\nmsg.payload = msg.payload[11];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 1040,
+        "wires": [
+            [
+                "66f564c0c5c71818"
+            ]
+        ]
+    },
+    {
+        "id": "66f564c0c5c71818",
+        "type": "ui_gauge",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "41ada60750625bae",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 460,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "8f27f4420567eb2f",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Dioxido de Carbono",
+        "func": "msg.topic = \"Concentración de Gases\";\nmsg.payload = msg.payload[12].toFixed(2);\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1100,
+        "wires": [
+            [
+                "31677047742a8304"
+            ]
+        ]
+    },
+    {
+        "id": "7f1638229770ade4",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "0",
+        "info": "1",
+        "x": 310,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "187b45b4c59260a1",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "1",
+        "info": "1",
+        "x": 310,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "2c61dd1ef5129bc3",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "2",
+        "info": "1",
+        "x": 310,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "557e69d2193d4261",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "3",
+        "info": "1",
+        "x": 310,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "9455d97452dd6e7a",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "4",
+        "info": "1",
+        "x": 310,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5908626c21d21eea",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "5",
+        "info": "1",
+        "x": 310,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c4c68189a44e192f",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "6",
+        "info": "1",
+        "x": 310,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "31677047742a8304",
+        "type": "ui_gauge",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "7ffb48eb2e84b1e3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Dioxido de Carbono",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 580,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "b5c861e738d40ea1",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "func": "let nombre = msg.payload.name;\nlet correo = msg.payload.correo;\n\n// Fecha de envio de correo\nlet today = new Date();\ntoday = today.toString();\n\nlet arrayDeCadenas = today.split(\" \");\n\nlet dia = arrayDeCadenas[2];\nlet mes = arrayDeCadenas[1];\nlet anio = arrayDeCadenas[3];\nlet hora = arrayDeCadenas[4];\n\nmsg = {\n    attachments : {\n        filename: \"datos.xls\",\n        path: \"D:\\\\CONCURSO IOT\\\\Data Colectada.xls\"\n    }\n}\n\nmsg.to = correo;\nmsg.topic = \"Envio de la data obtenida\"\n\nmsg.payload = `Buenas estimad@ ${nombre} siendo el dia ${dia} del mes de ${mes} con hora ${hora}.\n \\nLa data recaudada hasta este momento esta en el siguiente archivo` \n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 460,
+        "wires": [
+            [
+                "8a3afd349adc46e2",
+                "3283a6dc3b0d458e"
+            ]
+        ]
+    },
+    {
+        "id": "3283a6dc3b0d458e",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "func": "msg.payload = \"Se envio correctamente el archivo a su correo, si puede verificar :)\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 540,
+        "wires": [
+            [
+                "c4ab74b8ec20b53c"
+            ]
+        ]
+    },
+    {
+        "id": "c4ab74b8ec20b53c",
+        "type": "ui_toast",
+        "z": "4920525ac807b04c",
+        "position": "top right",
+        "displayTime": "10",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1250,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "8a3afd349adc46e2",
+        "type": "e-mail",
+        "z": "4920525ac807b04c",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "EMAIL",
+        "x": 1290,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3e219ab68a6407a9",
+        "type": "ui_template",
+        "z": "4920525ac807b04c",
+        "group": "ee85790532792aad",
+        "name": "",
+        "order": 1,
+        "width": 14,
+        "height": "10",
+        "format": "<head>\n    <!-- Load plotly.js into the DOM -->\n    <script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>\n    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>\n</head>\n\n<body>\n    <div id='myDiv'>\n        <!-- Plotly chart will be drawn inside this DIV -->\n    </div>\n    <h4>Los valores: <span id=\"x\">{{msg.payload.X}}</span>, <span id=\"y\">{{msg.payload.Y}}</span>, <span id=\"z\">{{msg.payload.Z}}</span> </h4>\n</body>\n\n<script type=\"text/javascript\">\n    (function() {             \n            (function(scope) {\n            scope.send({payload: \"Cargo\"}); // this gets sent when the view is opened in the browser\n            scope.$watch('msg', function(msg) {\n            if (msg) {\n                var x = msg.payload.X\n                var y = msg.payload.Y\n                var z = msg.payload.Z\n\n                if(x){\n                }else{\n                x = 0;\n                }\n                if(y){\n                }else{\n                y = 0;\n                }\n                if(z){\n                }else{\n                z = 0;\n                }\n\n                console.log(msg.payload)\n                \n                // mousewheel or two-finger scroll zooms the plot\n                var trace1 = [{\n                x:[12],\n                y: [1],\n                z: [30],\n                mode: \"markers\",\n                type: \"scatter3d\",\n                scene: \"scene3\",\n                name: \"Primer Minero\"\n                },{\n                x: [x],\n                y: [y],\n                z: [z],\n                mode: \"markers\",\n                type: \"scatter3d\",\n                scene: \"scene3\",\n                name: \"Segundo Minero\"\n                }\n                ,{\n                x: [Math.random()*3+29],\n                y: [Math.random()*3+10],\n                z: [Math.random()*3+99],\n                mode: \"markers\",\n                type: \"scatter3d\",\n                scene: \"scene3\",\n                name: \"Tercer Minero\"\n                }];\n                \n                \n                var data = trace1;\n                \n                var layout = {\n                \n                scene1: {\n                domain: {\n                x: [0.00, 0.33],\n                y: [0.5, 1]\n                },\n                camera: {\n                center: {\n                x: 0, y: 0, z: 0 },\n                eye: {\n                x: 2, y: 2, z: 0.1 },\n                up: {\n                x: 0, y: 0, z: 1 }\n                },}\n                };\n                \n                Plotly.newPlot('myDiv', data, layout, {scrollZoom: true});\n            }\n            });\n            })(scope);\n            \n        })();\n\n        \n</script>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1220,
+        "y": 140,
+        "wires": [
+            [
+                "6326a59b55b7505e"
+            ]
+        ]
+    },
+    {
+        "id": "e9437aba8dfbcc62",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "Desentramamos la TRAMA del Hardware",
+        "info": "",
+        "x": 220,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6a7f3725f0f52e4b",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "EMAIL",
+        "info": "",
+        "x": 1150,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "bddc33103d6263ba",
+        "type": "ui_form",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "label": "Enviar Data Correo",
+        "group": "6eaff0ec6a57c665",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Nombre Completo",
+                "value": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Correo Electrónico",
+                "value": "correo",
+                "type": "email",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "correo": ""
+        },
+        "payload": "",
+        "submit": "Enviar",
+        "cancel": "Descartar",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 890,
+        "y": 460,
+        "wires": [
+            [
+                "b5c861e738d40ea1"
+            ]
+        ]
+    },
+    {
+        "id": "65b6ada89ca6f96a",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "PLOT Data Hardware",
+        "info": "``",
+        "x": 480,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a3e17efaab5ac912",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "PLOT 3D",
+        "info": "``",
+        "x": 980,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e9125a1aca876591",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "DataBase",
+        "info": "",
+        "x": 1080,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "b6dd45802241f0c4",
+        "type": "mysql",
+        "z": "4920525ac807b04c",
+        "d": true,
+        "mydb": "bc85fa281d574e3f",
+        "name": "",
+        "x": 1260,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d9a83c960d77216e",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "function 3",
+        "func": "msg.topic = \"INSERT INTO Sensores (id, tiempo, humedad, temperatura) VALUES(NULL, CURRENT_TIMESTAMP, 12, 41);\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 680,
+        "wires": [
+            [
+                "b6dd45802241f0c4"
+            ]
+        ]
+    },
+    {
+        "id": "f56f055ab35306c0",
+        "type": "inject",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 920,
+        "y": 680,
+        "wires": [
+            [
+                "d9a83c960d77216e"
+            ]
+        ]
+    },
+    {
+        "id": "cc4a3c8c795fee7c",
+        "type": "http in",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "url": "/ui",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1480,
+        "y": 220,
+        "wires": [
+            [
+                "b76cbe593bada9e7"
+            ]
+        ]
+    },
+    {
+        "id": "235233094e923d3a",
+        "type": "debug",
+        "z": "4920525ac807b04c",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1980,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "28d2400aa195ea49",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "HTTP",
+        "info": "",
+        "x": 1670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "850c5ee6ecf3f69e",
+        "type": "link out",
+        "z": "4920525ac807b04c",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "97521f39ab575f6b"
+        ],
+        "x": 525,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "bac90cb2da902d50",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "function 8",
+        "func": "var x = msg.payload[0]\nvar y = msg.payload[1]\nvar z = msg.payload[2]\n\nvar posicion = {\n    \"X\": x,\n    \"Y\": y,\n    \"Z\": z\n}\n\nmsg.payload = posicion\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 220,
+        "wires": [
+            [
+                "3e219ab68a6407a9"
+            ]
+        ]
+    },
+    {
+        "id": "97521f39ab575f6b",
+        "type": "link in",
+        "z": "4920525ac807b04c",
+        "name": "link in 2",
+        "links": [
+            "850c5ee6ecf3f69e"
+        ],
+        "x": 745,
+        "y": 220,
+        "wires": [
+            [
+                "cda731a64d138c7c"
+            ]
+        ]
+    },
+    {
+        "id": "899ea077587c6128",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Vx",
+        "func": "msg.topic = \"Velocidad X\";\nmsg.payload = msg.payload[3];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 560,
+        "wires": [
+            [
+                "46caf752462114dd"
+            ]
+        ]
+    },
+    {
+        "id": "2d75691c69fa155e",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Ax",
+        "func": "msg.topic = \"Aceleración X\";\nmsg.payload = msg.payload[6];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 740,
+        "wires": [
+            [
+                "829a3eb8e5381eef"
+            ]
+        ]
+    },
+    {
+        "id": "36b042b24a948de4",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Vy",
+        "func": "msg.topic = \"Velocidad Y\";\nmsg.payload = msg.payload[4];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 620,
+        "wires": [
+            [
+                "46caf752462114dd"
+            ]
+        ]
+    },
+    {
+        "id": "664b3da94cb84f36",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Vz",
+        "func": "msg.topic = \"Velocidad Z\";\nmsg.payload = msg.payload[5];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 680,
+        "wires": [
+            [
+                "46caf752462114dd"
+            ]
+        ]
+    },
+    {
+        "id": "5499e486c97bee57",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Ay",
+        "func": "msg.topic = \"Aceleración Y\";\nmsg.payload = msg.payload[7];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 800,
+        "wires": [
+            [
+                "829a3eb8e5381eef"
+            ]
+        ]
+    },
+    {
+        "id": "f811ed265864689b",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Az",
+        "func": "msg.topic = \"Aceleración Z\";\nmsg.payload = msg.payload[8];\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 860,
+        "wires": [
+            [
+                "829a3eb8e5381eef"
+            ]
+        ]
+    },
+    {
+        "id": "9b2b18d8e0287807",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "7",
+        "info": "1",
+        "x": 310,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "1ed839e46f5ec60f",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "8",
+        "info": "1",
+        "x": 310,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "b0a5d6e2f1b0918a",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "9",
+        "info": "1",
+        "x": 350,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "a49e3c7c632ccb45",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "10",
+        "info": "1",
+        "x": 330,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "24aa8341fc292bdc",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "11",
+        "info": "1",
+        "x": 330,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "a9c7f03551e340de",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "12",
+        "info": "1",
+        "x": 410,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "46caf752462114dd",
+        "type": "ui_chart",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "0a8deea34d02a9d3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Velocidad",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 480,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "829a3eb8e5381eef",
+        "type": "ui_chart",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "3820a3cb1ec2b3f9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Aceleración",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 490,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "96ec51435b465e08",
+        "type": "ui_chart",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "7a832387.7a6c6c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Posición",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 480,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a5ebdd34b704d486",
+        "type": "ui_gauge",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "72817b3cbf05a1d4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gas Licuado de Petroleo",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 490,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "37b1baa4f6d9d150",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "GAS",
+        "func": "msg.topic = \"Gas Licuado de Petróleo\";\nmsg.payload = msg.payload[13].toFixed(2);\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 1160,
+        "wires": [
+            [
+                "a5ebdd34b704d486"
+            ]
+        ]
+    },
+    {
+        "id": "14d42d90150f8c4a",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "13",
+        "info": "1",
+        "x": 310,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "cd7ff5c384c34e2d",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Convertir a csv",
+        "func": "// Definimos variable de tiempo\nlet today = new Date();\ntoday = today.toString();\nlet arrayDeCadenas = today.split(\" \");\n\nlet dia = arrayDeCadenas[2];\nlet mes = arrayDeCadenas[1];\nlet anio = arrayDeCadenas[3];\nlet hora = arrayDeCadenas[4];\n\nlet cadena = '';\nlet separador = '\\t';\n\nfor (let i = 0; i < msg.payload.length; i++){\n    msg.payload[i] = parseFloat(msg.payload[i])\n}\n\nfor (let i = 0; i < msg.payload.length; i++) {\n    cadena += msg.payload[i] + separador\n}\n\nmsg.payload = dia + separador + mes + separador + anio + separador + hora + separador + cadena\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1080,
+        "y": 880,
+        "wires": [
+            [
+                "773d3998c41b2649"
+            ]
+        ]
+    },
+    {
+        "id": "773d3998c41b2649",
+        "type": "file",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "filename": "D:\\CONCURSO IOT\\datos.xls",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1330,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d0361853dc0e4351",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "Envia datos a directorio local CSV",
+        "info": "",
+        "x": 1120,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "fb9918b8d1f75bc1",
+        "type": "inject",
+        "z": "4920525ac807b04c",
+        "name": "Cabecera",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 900,
+        "y": 820,
+        "wires": [
+            [
+                "1ee51fb6ba8eb534"
+            ]
+        ]
+    },
+    {
+        "id": "1ee51fb6ba8eb534",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Cabecera",
+        "func": "let separador = '\\t';\n\nmsg.payload = `Dia${separador}Mes${separador}Anio${separador}Hora${separador}`\nmsg.payload = msg.payload + `Pos X${separador}Pos Y${separador}Pos Z${separador}`\nmsg.payload = msg.payload + `Vel X${separador}Vel Y${separador}Vel Z${separador}`\nmsg.payload = msg.payload + `Acel X${separador}Acel Y${separador}Acel Z${separador}`\nmsg.payload = msg.payload + `Temperatura${separador}Presion${separador}Humedad${separador}`\nmsg.payload = msg.payload + `Dioxido de Carbono (ppm)${separador}Gas Natural (ppm)${separador}Acetona (ppm)${separador}`\nmsg.payload = msg.payload + `Tolueno (ppm)${separador}Alcohol (ppm)`\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 820,
+        "wires": [
+            [
+                "2cdf4f3d2ecba033"
+            ]
+        ]
+    },
+    {
+        "id": "42e5c5907bdcf3e0",
+        "type": "ui_form",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "label": "Ingresa la posicion del Segundo Minero",
+        "group": "ee85790532792aad",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "X",
+                "value": "X",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Y",
+                "value": "Y",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Z",
+                "value": "Z",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "X": "",
+            "Y": "",
+            "Z": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 920,
+        "y": 160,
+        "wires": [
+            [
+                "3e219ab68a6407a9"
+            ]
+        ]
+    },
+    {
+        "id": "5d676fc4f15599b1",
+        "type": "inject",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "10",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 850,
+        "y": 100,
+        "wires": [
+            [
+                "3e219ab68a6407a9",
+                "51f8d00dbf119705"
+            ]
+        ]
+    },
+    {
+        "id": "51f8d00dbf119705",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "function 10",
+        "func": "msg.payload = { \n    'X': 3, \n    'Y': 4, \n    'Z': 4 \n    }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 100,
+        "wires": [
+            [
+                "3e219ab68a6407a9"
+            ]
+        ]
+    },
+    {
+        "id": "6326a59b55b7505e",
+        "type": "debug",
+        "z": "4920525ac807b04c",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "cda731a64d138c7c",
+        "type": "delay",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "pauseType": "queue",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "7",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 2,
+        "x": 890,
+        "y": 220,
+        "wires": [
+            [
+                "bac90cb2da902d50"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2cdf4f3d2ecba033",
+        "type": "file",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "filename": "D:\\CONCURSO IOT\\datos.xls",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1310,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9152a197232f22d5",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Acetona",
+        "func": "msg.topic = \"Acetona\";\nmsg.payload = msg.payload[14].toFixed(2);\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 1220,
+        "wires": [
+            [
+                "d254c6a0398e4e0a"
+            ]
+        ]
+    },
+    {
+        "id": "113a56f0228a6a92",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Tolueno",
+        "func": "msg.topic = \"Tolueno\";\nmsg.payload = msg.payload[15].toFixed(2);\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 1280,
+        "wires": [
+            [
+                "5d7e20c92be29733"
+            ]
+        ]
+    },
+    {
+        "id": "b0e54270ba8490ae",
+        "type": "function",
+        "z": "4920525ac807b04c",
+        "name": "Alcohol",
+        "func": "msg.topic = \"Alcohol\";\nmsg.payload = msg.payload[16].toFixed(2);\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 1340,
+        "wires": [
+            [
+                "2a4a2be483278a70"
+            ]
+        ]
+    },
+    {
+        "id": "b941ac1062f6386c",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "14",
+        "info": "1",
+        "x": 330,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "4dd72e3786212d8c",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "15",
+        "info": "1",
+        "x": 330,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "f9f143d030ed8c45",
+        "type": "comment",
+        "z": "4920525ac807b04c",
+        "name": "16",
+        "info": "1",
+        "x": 330,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "d254c6a0398e4e0a",
+        "type": "ui_gauge",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "3bc8d32c24f8ee23",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Acetona",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 460,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "5d7e20c92be29733",
+        "type": "ui_gauge",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "6e8433803ca57ad4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Tolueno",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 460,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "2a4a2be483278a70",
+        "type": "ui_gauge",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "group": "ed0d51aafaafa23d",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Alcohol",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 460,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "96fa922588de10be",
+        "type": "link in",
+        "z": "4920525ac807b04c",
+        "name": "link in 3",
+        "links": [
+            "dae8eb76ef5c5fe4"
+        ],
+        "x": 945,
+        "y": 880,
+        "wires": [
+            [
+                "cd7ff5c384c34e2d"
+            ]
+        ]
+    },
+    {
+        "id": "dae8eb76ef5c5fe4",
+        "type": "link out",
+        "z": "4920525ac807b04c",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "96fa922588de10be"
+        ],
+        "x": 525,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "dac4122830b855fb",
+        "type": "ui_template",
+        "z": "4920525ac807b04c",
+        "group": "e7ac98aab9138033",
+        "name": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    body {\n        background-image: url(https://res.cloudinary.com/daq5mieba/image/upload/v1664840254/Mine_anjmpd.jpg);\n        background-repeat: repeat-y;\n        background-attachment: fixed;\n        background-size: 100%;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 1160,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f98497808c8d7dbf",
+        "type": "ui_template",
+        "z": "4920525ac807b04c",
+        "group": "e7ac98aab9138033",
+        "name": "",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<head>\n    <!-- Required meta tags -->\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <!-- Bootstrap CSS -->\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n        integrity=\"sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC\" crossorigin=\"anonymous\">\n</head>\n\n\n<script>\n    /*\n        // Create element:\n        const para = document.createElement(\"p\");\n        para.innerHTML = \"This is a paragraph.\";\n        \n        // Append to another element:\n        document.getElementById(\"myDIV\").appendChild(para);\n    */\n\n    var estilo = \"position: absolute; top: 8px; right: 16px;\"        \n\n    //Creando elemento\n    const boton = document.createElement(\"button\");\n    boton.setAttribute(\"class\", \"btn btn-warning btn-lg\");\n    boton.setAttribute(\"id\", \"Button-Email\");\n    boton.setAttribute(\"style\", estilo)\n    boton.innerHTML = \"Send Data\";\n\n\n    //Agregando el boton\n    var barraSuperior = document.getElementById(\"nr-dashboard-toolbar\")\n    barraSuperior.appendChild(boton)\n\n    //Agregando estilo\n    //const note = document.querySelector(\"#Button-Email\");\n    //note.style.cssText += \"justify-content: flex-end;\";\n\n   \n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 1160,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d93707d47fc964bb",
+        "type": "inject",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 990,
+        "y": 380,
+        "wires": [
+            [
+                "f98497808c8d7dbf",
+                "dac4122830b855fb"
+            ]
+        ]
+    },
+    {
+        "id": "30293816bb9de19f",
+        "type": "change",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "headers.content-type",
+                "pt": "msg",
+                "to": "application/json",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1820,
+        "y": 220,
+        "wires": [
+            [
+                "235233094e923d3a",
+                "ad46b238458a6432"
+            ]
+        ]
+    },
+    {
+        "id": "ad46b238458a6432",
+        "type": "http response",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1980,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b76cbe593bada9e7",
+        "type": "template",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"sitio\": 2}",
+        "output": "str",
+        "x": 1660,
+        "y": 220,
+        "wires": [
+            [
+                "30293816bb9de19f"
+            ]
+        ]
+    },
+    {
+        "id": "1dca8874127ac37e",
+        "type": "http request",
+        "z": "4920525ac807b04c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1890,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "434df0726cce18d4",
+        "type": "serial-port",
+        "serialport": "COM10",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "|",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "24b9beb434f376b9",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "18.231.187.108",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3e3d42059a2d3e3a",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "f76c8797.584da8",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "73f61d8b1719a763",
+        "type": "ui_group",
+        "name": "Presión",
+        "tab": "f76c8797.584da8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "41ada60750625bae",
+        "type": "ui_group",
+        "name": "Humedad",
+        "tab": "f76c8797.584da8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7ffb48eb2e84b1e3",
+        "type": "ui_group",
+        "name": "Dioxido de Carbono",
+        "tab": "f76c8797.584da8",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ee85790532792aad",
+        "type": "ui_group",
+        "name": "Plot 3D Mineros",
+        "tab": "df3828d8b326c2ec",
+        "order": 1,
+        "disp": true,
+        "width": 14,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6eaff0ec6a57c665",
+        "type": "ui_group",
+        "name": "Correo",
+        "tab": "f76c8797.584da8",
+        "order": 9,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bc85fa281d574e3f",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "http://18.228.119.120",
+        "port": "3306",
+        "db": "MONITOREO",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "0a8deea34d02a9d3",
+        "type": "ui_group",
+        "name": "Velocidad",
+        "tab": "28b17b544d0e0aca",
+        "order": 2,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3820a3cb1ec2b3f9",
+        "type": "ui_group",
+        "name": "Aceleración",
+        "tab": "28b17b544d0e0aca",
+        "order": 3,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7a832387.7a6c6c",
+        "type": "ui_group",
+        "name": "Posicion",
+        "tab": "28b17b544d0e0aca",
+        "order": 1,
+        "disp": true,
+        "width": 12,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "72817b3cbf05a1d4",
+        "type": "ui_group",
+        "name": "Gas Licuado de Petroleo",
+        "tab": "f76c8797.584da8",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3bc8d32c24f8ee23",
+        "type": "ui_group",
+        "name": "Acetona",
+        "tab": "f76c8797.584da8",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6e8433803ca57ad4",
+        "type": "ui_group",
+        "name": "Tolueno",
+        "tab": "f76c8797.584da8",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ed0d51aafaafa23d",
+        "type": "ui_group",
+        "name": "Alcohol",
+        "tab": "f76c8797.584da8",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e7ac98aab9138033",
+        "type": "ui_group",
+        "name": "Proyecto",
+        "tab": "f0a3d3251ed1fd52",
+        "order": 1,
+        "disp": true,
+        "width": "13",
+        "collapse": false
+    },
+    {
+        "id": "f76c8797.584da8",
+        "type": "ui_tab",
+        "name": "Menu",
+        "icon": "fa-list-alt",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "df3828d8b326c2ec",
+        "type": "ui_tab",
+        "name": "3D",
+        "icon": "fa-cube",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "28b17b544d0e0aca",
+        "type": "ui_tab",
+        "name": "Variables Fisicas",
+        "icon": "fa-map",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f0a3d3251ed1fd52",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
