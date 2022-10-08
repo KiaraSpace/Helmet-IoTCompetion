@@ -14,7 +14,12 @@ El objetivo del presente proyecto es el de otorgar un grado mayor de seguridad a
     * Sare Vargas, Nilton Sare
     * Montoya Obeso, Leonardo
     * Rodriguez Bautista, Kiara Micaela 
-    
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Arquitectura de la Solución:
+
+![imagen_2022-10-07_200814616](https://user-images.githubusercontent.com/80610961/194680180-151b4049-2059-4ca8-b330-483f41555611.png)
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Prototipo:
@@ -26,9 +31,6 @@ En el área de hardware, el prototipo planteado consta de una Raspberry Pi Pico 
 * BMP280
 * DHT11
 * MPU9250
-# Arquitectura de la Solución:
-
-![imagen_2022-10-07_200814616](https://user-images.githubusercontent.com/80610961/194680180-151b4049-2059-4ca8-b330-483f41555611.png)
 
 ## Hardware del prototipo implementado:
 ![image](https://user-images.githubusercontent.com/80610961/194448796-8b77bc99-e6ff-47a9-adc3-0892a6a0e1ed.png)
