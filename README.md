@@ -49,6 +49,12 @@ Los datos obtenidos de los sensores se visualizarán en la plataforma diseñada 
 
 ![image](https://user-images.githubusercontent.com/80610961/194457489-41371f54-afdc-47ae-afbb-62f78dc6dde2.png)
 
+Link del Dashboard
+http://18.229.159.18:1880/ui
+
+Agregar que se adiciono seguridad al Backend de Node-red
+![image](https://user-images.githubusercontent.com/86942136/194724887-2b6d547c-a119-4c75-a127-fa1880fdbd74.png)
+
 ## Código- Software:
 1. El código `Concurso IOT.json`, consta de la implementación general de los dashboards de visualización de datos en tiempo real en Node-Red.
 2. El código `Code.py`, consta de la programación de todos los sensores, además del algoritmo de localización.
